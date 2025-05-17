@@ -15,7 +15,7 @@ target-path: "target"
 clean-targets: ["target", "dbt_modules"]
 
 models:
-  jaffle_shop:
+  marts:
     +materialized: table
-  example:
+  staging:
     +materialized: view

@@ -1,12 +1,14 @@
+
 with
     customers as (
         select distinct customer_id, first_name, last_name
-        from {{ ref("stg_customers") }}
+        from {{ ref("stg_jaffle_shop__customers") }}
 
     ),
 
     orders as (
-        select order_id, customer_id, order_date, status from {{ ref("stg_orders") }}
+        select order_id, customer_id, order_date, status
+        from {{ ref("stg_jaffle_shop__orders") }}
     ),
 
     customer_orders as (
