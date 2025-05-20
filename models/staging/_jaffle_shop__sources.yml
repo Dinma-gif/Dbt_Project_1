@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: dbtworkshop
+    schema: jaffle_shop
+    tables:
+      - name: customers
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+      - name: orders
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+
+  - name: stripe
+    database: dbtworkshop
+    schema: stripe
+    tables:
+      - name: payment
+        freshness: 
+          error_after:
+            count: 2
+            period: day
+          warn_after:
+            count: 1
+            period: day # optional: specify if you're using freshness
+
