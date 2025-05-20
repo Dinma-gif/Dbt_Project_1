@@ -2,16 +2,20 @@ version: 2
 
 sources:
   - name: jaffle_shop
+    description: a clone of a redshift application database
     database: dbtworkshop
     schema: jaffle_shop
     tables:
       - name: customers
+        description: raw customer data
         columns:
           - name: id
+            description: primary_key for customers data
             tests:
               - unique
               - not_null
       - name: orders
+        description: raw orders data
         columns:
           - name: id
             tests:
